@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const [list, setList] = useState<Array<string>>([]);
 
   const onAdd = (todoItem: string) => {
-    setList(prevList => [...list, todoItem])
+    setList((prevList) => [...list, todoItem]);
   };
 
   return (
@@ -22,16 +22,10 @@ const Home: NextPage = () => {
 
       <h3 className="my-4">The List:</h3>
       <List list={list} />
-      <ul style={{ maxWidth: "600px" }}>
-        <div className="row">
-          <div className="col">
-            <li>ss</li>
-          </div>
-          <div className="col">
-            <button className="btn btn-outline-secondary">Done</button>
-          </div>
-        </div>
-      </ul>
+
+      <button className="btn btn-outline-danger" onClick={() => setList([])}>
+        Clean
+      </button>
     </>
   );
 };
