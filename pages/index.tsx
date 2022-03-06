@@ -14,6 +14,10 @@ const Home: NextPage = () => {
     setList((prevList) => [...list, todoItem]);
   };
 
+  const onDelete = (index: number) => {
+    setList((prevList) => list.filter((_, listIndex) => listIndex !== index));
+  };
+
   return (
     <>
       <h1 className="my-5">My Todo List</h1>
@@ -21,7 +25,7 @@ const Home: NextPage = () => {
       <Input onAdd={onAdd} />
 
       <h3 className="my-4">The List:</h3>
-      <List list={list} />
+      <List list={list} onDelete={onDelete} />
 
       <button className="btn btn-outline-danger" onClick={() => setList([])}>
         Clean
